@@ -22,3 +22,11 @@ Genome analysis is the identification of genomic features such as gene expressio
 **You may use any programming language you feel most comfortable. We recommend Python because it is the easiest to implement. You're allowed to use any library you want to implement this**, just document which ones you used in this README file. Try to complete this as soon as possible.
 
 Regardless if you can or cannot answer the question, provide a short explanation of how you got your solution or how you think it can be solved in your README.md file. However, we highly recommend giving the challenge a try, you just might learn something new!
+
+## Circular Genome Representation 
+
+There are two types of genome mapping - physical and genetic. I chose physical mapping based on the contents of the Genbank file and utilized the base span of the CDS to visualize the regions of nucleotides that correspond to the sequence of amino acids in a protein measured by base pairs. 
+
+I first opened the Genbank file for parsing using the Biopython package and the Sequence Input/Output interface. From the file the base span and sequence is obtained and stored. The virus being analyzed has a length of 2766 bp (base pairs) and 5 known gene sequences.
+
+To plot this information in a circular format I used matplotlib to map out the proteins and their associated base spans. I did a multilevel graph to show overlapping proteins and used patches to visualize if the protein was on a complimentary strand. The legend displays a color coded guide to show the correlated proteins. 
