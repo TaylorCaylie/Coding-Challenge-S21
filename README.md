@@ -30,3 +30,5 @@ There are two types of genome mapping - physical and genetic. I chose physical m
 I first opened the Genbank file for parsing using the Biopython package and the Sequence Input/Output interface. From the file the base span and sequence is obtained and stored. The virus being analyzed has a length of 2766 bp (base pairs) and 5 known gene sequences.
 
 To plot this information in a circular format I used matplotlib to map out the proteins and their associated base spans. I did a multilevel graph to show overlapping proteins and used patches to visualize if the protein was on a complimentary strand. The legend displays a color coded guide to show the correlated proteins. 
+
+![alt text](https://github.com/TaylorCaylie/Coding-Challenge-S21/blob/main/tomato_curly_stunt_virus_genome.png)
