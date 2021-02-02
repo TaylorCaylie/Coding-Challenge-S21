@@ -35,8 +35,7 @@ from matplotlib.lines import Line2D
 
 with open("Genome.gb", "r") as handle:
      for seq_record in SeqIO.parse(handle, "genbank"):
-          print(seq_record.id)
-          print(repr(seq_record.seq))
+          gen_sequence = seq_record.seq #get the genome sequence
           for feature in seq_record.features:
                if feature.type == "CDS":
                     base_span = feature.location
@@ -50,7 +49,24 @@ with open("Genome.gb", "r") as handle:
 # gene v1 and v2 overlap
 # v1 and c3 overlap
 # gene c1, c2 &  c2, c3 overlap 
- 
+arr = list(gen_sequence) #put the gen sequence into an array of characters
+base_names = []
+base_colors = []
+base_size=[]
+for x in range(0,len(arr)): #go through bases and assign colors and increment size for each base
+     if arr[x] == 'A':
+          base_colors.append('Blue')
+          base_size.append(1)
+     if arr[x] == 'C':
+          base_colors.append('Red') 
+          base_size.append(1)  
+     if arr[x] == 'G':
+          base_colors.append('Green')
+          base_size.append(1)
+     if arr[x] == 'T':
+          base_colors.append('Yellow')
+          base_size.append(1)
+
 fig, ax = plt.subplots()
 names = '', 'v2', '', 'c3','','c1','' 
 overlap_names = '','v1','','c2', ''
@@ -62,7 +78,8 @@ bp_ticks_names = ['','','','','','','','','','','','300','','','','','','','',''
 outside, _ = ax.pie(size,  colors=['white','darkblue','white','cornflowerblue','white','blue','white'], radius=1)
 inside, _ = ax.pie([299,776,142, 407,1142], colors=['white','slateblue','white', 'blueviolet', 'white'], radius=1-width)
 #ticks to use as a guide for bp where genes are located
-bp_ticks, _ = ax.pie([50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10], labels=bp_ticks_names, colors=['white','black', 'white','black','white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black'], radius=1.2, labeldistance=1.1, textprops={'fontsize': 9})
+bp_ticks, _ = ax.pie([50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10,50,3,50,3,50,3,50,3,50,3,50,10], labels=bp_ticks_names, colors=['white','black', 'white','black','white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black', 'white', 'black'], radius=1.2, labeldistance=1.03, textprops={'fontsize': 8})
+bases, _ = ax.pie(base_size, colors=base_colors, radius=1.58)
 p=plt.gcf() #get current figure
 
 style = "Simple, tail_width=0.5, head_width=4, head_length=8"
@@ -84,7 +101,7 @@ ax.text(0, 0, 'Tomato Curly\n Stunt Virus\n 2,766 bp', ha='center',
      bbox=dict(boxstyle='round', edgecolor='none', color='white'),
      )
 
-plt.setp(inside + outside + bp_ticks, width=width)
+plt.setp(bases+ inside + outside + bp_ticks, width=width)
 
 #add patches of arrows to graph
 for x in [v1,v2,c3,c2,c1]:
