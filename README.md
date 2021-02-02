@@ -25,11 +25,13 @@ Regardless if you can or cannot answer the question, provide a short explanation
 
 ## Circular Genome Representation 
 
-There are two types of genome mapping - physical and genetic. I chose physical mapping based on the contents of the Genbank file and utilized the base span of the CDS to visualize the regions of nucleotides that correspond to the sequence of amino acids in a protein measured by base pairs. 
+There are two types of genome mapping - physical and genetic. I chose physical mapping based on the contents of the Genbank file and utilized the base span of the CDS to visualize the regions of nucleotides that correspond to the sequence of amino acids in a protein product measured by base pairs. 
 
 I first opened the Genbank file for parsing using the Biopython package and the Sequence Input/Output interface. From the file the base span and sequence is obtained and stored. The virus being analyzed has a length of 2766 bp (base pairs) and 5 known gene sequences.
 
-To plot this information in a circular format I used matplotlib to map out the proteins and their associated base spans. I did a multilevel graph to show overlapping proteins and used patches to visualize if the protein was on a complimentary strand. The legend displays a color coded guide to show the correlated proteins. 
+To plot this information in a circular format I used matplotlib to map out the protein products and their associated base spans. I did a multilevel graph to show overlapping protein products and used patches to visualize if the protein was on a complimentary strand. The legend displays a color coded guide to show the correlated proteins. 
+
+The most outer circular layers shows the genome sequence. Adenine is blue, Cytosine is red, Guanine is green, and Thymine is yellow. The second most outer layer is a ruler using bp as a measurement to evaluate the corresponding sequences and protein products.
 
 ![alt text](https://github.com/TaylorCaylie/Coding-Challenge-S21/blob/main/tomato_curly_stunt_virus_genome.png)
 
