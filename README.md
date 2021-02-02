@@ -32,3 +32,10 @@ I first opened the Genbank file for parsing using the Biopython package and the 
 To plot this information in a circular format I used matplotlib to map out the proteins and their associated base spans. I did a multilevel graph to show overlapping proteins and used patches to visualize if the protein was on a complimentary strand. The legend displays a color coded guide to show the correlated proteins. 
 
 ![alt text](https://github.com/TaylorCaylie/Coding-Challenge-S21/blob/main/tomato_curly_stunt_virus_genome.png)
+
+## Resources Used
+
+- Biopython was used to access the genbank file and obtain the cds and associated attributes. 
+http://biopython.org/DIST/docs/biosql/python_biosql_basic.html
+- Matplotlib allowed for the patches to visualize the direction and the plot itself.  
+J. D. Hunter, "Matplotlib: A 2D Graphics Environment", Computing in Science & Engineering, vol. 9, no. 3, pp. 90-95, 2007.
